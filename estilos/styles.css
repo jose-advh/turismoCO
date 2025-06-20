@@ -1,0 +1,457 @@
+:root {
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-accent: #0066cc;
+  --font-main: "Montserrat", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--color-white);
+  color: var(--color-black);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+}
+
+/* Header */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--color-white);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+.header-logo .image-placeholder {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 0.75rem;
+  background-color: #f5f5f5;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.navigation {
+  display: flex;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: var(--color-black);
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--color-accent);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+    z-index: 1100;
+  }
+
+  .navigation {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: var(--color-white);
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .navigation.open {
+    max-height: 300px; /* ajustable según contenido */
+  }
+
+  .nav-list {
+    flex-direction: column;
+    padding: 1rem 2rem;
+    gap: 1rem;
+  }
+}
+
+/* Hero */
+.hero {
+  margin-top: 80px; /* espacio por el header */
+}
+
+.hero-background {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #e0e0e0;
+}
+
+.image-hero {
+  position: absolute;
+  inset: 0;
+  background-image: url(../media/imagenes/fondoinicio-colombia.jpg);
+  background-size: cover;
+  color: #555;
+  font-size: 1rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero-text {
+  color: white;
+  font-size: 2.8rem;
+  font-weight: bold;
+  text-align: center;
+  z-index: 2;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+  padding: 1rem 2rem;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+}
+
+/* Sección Experiencias */
+.section-experiences {
+  padding: 5rem 2rem;
+  background-color: var(--color-white);
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 3rem;
+  text-transform: uppercase;
+}
+
+.text-green {
+  color: #1abc5d;
+}
+
+.text-yellow {
+  color: #f7c948;
+}
+
+.text-red {
+  color: #e74c3c;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.card {
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 1.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.card-image {
+  height: 180px;
+  background-color: #e0e0e0;
+  border: 3px dashed #bbb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  color: #555;
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+.card-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-align: left;
+  margin-bottom: 0.5rem;
+}
+
+.card-description {
+  font-size: 0.95rem;
+  text-align: left;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.text-highlight {
+  color: var(--color-accent);
+}
+
+/* Botón */
+.button {
+  display: inline-block;
+  background-color: #1abc5d;
+  color: white;
+  font-weight: bold;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.button:hover {
+  background-color: #16a34a;
+  transform: scale(1.05);
+}
+
+.section-highlight {
+  width: 100%;
+  margin: 4rem 0;
+}
+
+.highlight-background {
+  position: relative;
+  background-color: #ddd;
+  height: 250px;
+  display: flex;
+  align-items: center;
+  background-image: url("../media/imagenes/carnavalbq.jpg"); /* puedes reemplazar con imagen real */
+  background-size: cover;
+  background-position: center;
+}
+
+.highlight-background::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.highlight-content {
+  position: relative;
+  z-index: 1;
+  color: var(--color-white);
+  max-width: 600px;
+}
+
+.highlight-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.button-highlight {
+  display: inline-block;
+  background-color: #087f23;
+  color: white;
+  font-weight: bold;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.button-highlight:hover {
+  background-color: #06661c;
+  transform: scale(1.05);
+}
+
+/* Sección Ferias y Fiestas */
+.section-events {
+  padding: 5rem 2rem;
+  background-color: var(--color-white);
+  text-align: center;
+}
+
+.section-events .section-title {
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.section-events .section-title::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 2px;
+  background-color: var(--color-black);
+  margin: 0.5rem auto 0 auto;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.card {
+  background-color: #fefefe;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.card-image {
+  height: 200px;
+  background-color: #e0e0e0;
+  border: 3px dashed #bbb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  color: #555;
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+.card-description {
+  font-size: 0.95rem;
+  color: #333;
+  text-align: left;
+  font-weight: 500;
+}
+
+/* Footer */
+.footer {
+  background-color: #f3f3f3;
+  color: var(--color-black);
+  margin-top: 4rem;
+  font-size: 0.95rem;
+}
+
+.footer-top {
+  padding: 3rem 2rem 2rem;
+  border-top: 6px solid transparent;
+  background-image: linear-gradient(
+    to right,
+    #d62828 0%,
+    #eb5e28 20%,
+    #f77f00 40%,
+    #fcbf49 60%,
+    #80ed99 80%,
+    #00bbf9 100%
+  );
+  background-clip: content-box;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+}
+
+.footer-logo .image-placeholder {
+  width: 60px;
+  height: 60px;
+  background-color: #e0e0e0;
+  border: 2px dashed #bbb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.footer-heading {
+  font-weight: bold;
+  margin-bottom: 0.75rem;
+}
+
+.footer-text {
+  color: #444;
+  margin-bottom: 0.5rem;
+}
+
+.footer-link {
+  color: #333;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 0.4rem;
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+  color: var(--color-accent);
+}
+
+.social-icons {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-icon {
+  display: inline-block;
+  background-color: #1abc5d;
+  color: white;
+  padding: 0.4rem 0.6rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.social-icon:hover {
+  background-color: #16a34a;
+}
+
+.footer-bottom {
+  background-color: #e0e0e0;
+  padding: 1rem 2rem;
+  text-align: center;
+}
+
+.footer-copy {
+  font-size: 0.85rem;
+  color: #666;
+}
